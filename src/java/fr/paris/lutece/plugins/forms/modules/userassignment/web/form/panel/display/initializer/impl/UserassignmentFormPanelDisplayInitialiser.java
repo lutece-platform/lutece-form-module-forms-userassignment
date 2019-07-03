@@ -22,7 +22,8 @@ public class UserassignmentFormPanelDisplayInitialiser extends FormPanelFormResp
 		if ( currentUser != null )
 		{
 			List<ResourceUser> resourceList = ResourceUserHome.findByUser(currentUser.getUserId( ), FormResponse.RESOURCE_TYPE );
-			formReponseIdList.addAll( resourceList.stream( ).map( ResourceUser::getIdResource ).collect( Collectors.toList( ) ) );
+			formReponseIdList.addAll( resourceList.stream( )
+					.filter( ResourceUser::isActive ).map( ResourceUser::getIdResource ).collect( Collectors.toList( ) ) );
 		}
 		return formReponseIdList;
 	}
