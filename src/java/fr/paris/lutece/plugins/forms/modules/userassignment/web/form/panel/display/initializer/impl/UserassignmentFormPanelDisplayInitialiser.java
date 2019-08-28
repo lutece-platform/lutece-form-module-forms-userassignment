@@ -13,18 +13,20 @@ import fr.paris.lutece.plugins.userassignment.business.ResourceUserHome;
 import fr.paris.lutece.portal.business.user.AdminUser;
 import fr.paris.lutece.portal.service.admin.AdminUserService;
 
-public class UserassignmentFormPanelDisplayInitialiser extends FormPanelFormResponseIdFilterDisplayInitialiser {
+public class UserassignmentFormPanelDisplayInitialiser extends FormPanelFormResponseIdFilterDisplayInitialiser
+{
 
-	@Override
-	protected List<Integer> getIdList(HttpServletRequest request) {
-		List<Integer> formReponseIdList = new ArrayList<>( );
-		AdminUser currentUser = AdminUserService.getAdminUser( request );
-		if ( currentUser != null )
-		{
-			List<ResourceUser> resourceList = ResourceUserHome.findByUser(currentUser.getUserId( ), FormResponse.RESOURCE_TYPE );
-			formReponseIdList.addAll( resourceList.stream( )
-					.filter( ResourceUser::isActive ).map( ResourceUser::getIdResource ).collect( Collectors.toList( ) ) );
-		}
-		return formReponseIdList;
-	}
+    @Override
+    protected List<Integer> getIdList( HttpServletRequest request )
+    {
+        List<Integer> formReponseIdList = new ArrayList<>( );
+        AdminUser currentUser = AdminUserService.getAdminUser( request );
+        if ( currentUser != null )
+        {
+            List<ResourceUser> resourceList = ResourceUserHome.findByUser( currentUser.getUserId( ), FormResponse.RESOURCE_TYPE );
+            formReponseIdList
+                    .addAll( resourceList.stream( ).filter( ResourceUser::isActive ).map( ResourceUser::getIdResource ).collect( Collectors.toList( ) ) );
+        }
+        return formReponseIdList;
+    }
 }
