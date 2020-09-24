@@ -52,14 +52,14 @@ public class FormColumnFormResponseAssigneeQueryPart extends AbstractFormColumnQ
 {
     public static final String KEY_USER_LIST = "user_list";
 
-    private IResourceUserDAO resourceUserDAO = SpringContextService.getBean( ResourceUserDAO.BEAN_NAME );
+    private IResourceUserDAO _resourceUserDAO = SpringContextService.getBean( ResourceUserDAO.BEAN_NAME );
 
     @Override
     protected Map<String, Object> getMapFormColumnValues( FormResponseSearchItem formResponseSearchItem )
     {
         Map<String, Object> mapFormColumnValues = new HashMap<>( );
 
-        List<AdminUser> userList = resourceUserDAO.selectUserListByResource( formResponseSearchItem.getIdFormResponse( ), FormResponse.RESOURCE_TYPE,
+        List<AdminUser> userList = _resourceUserDAO.selectUserListByResource( formResponseSearchItem.getIdFormResponse( ), FormResponse.RESOURCE_TYPE,
                 FormsPlugin.getPlugin( ) );
 
         if ( CollectionUtils.isNotEmpty( userList ) )
