@@ -44,6 +44,7 @@ import fr.paris.lutece.plugins.forms.business.form.column.querypart.impl.Abstrac
 import fr.paris.lutece.plugins.forms.business.form.search.FormResponseSearchItem;
 import fr.paris.lutece.plugins.forms.service.FormsPlugin;
 import fr.paris.lutece.plugins.userassignment.business.IResourceUserDAO;
+import fr.paris.lutece.plugins.userassignment.business.ResourceUserDAO;
 import fr.paris.lutece.portal.business.user.AdminUser;
 import fr.paris.lutece.portal.service.spring.SpringContextService;
 
@@ -51,7 +52,7 @@ public class FormColumnFormResponseAssigneeQueryPart extends AbstractFormColumnQ
 {
     public static final String KEY_USER_LIST = "user_list";
 
-    private IResourceUserDAO resourceUserDAO = SpringContextService.getBean( IResourceUserDAO.BEAN_NAME );
+    private IResourceUserDAO resourceUserDAO = SpringContextService.getBean( ResourceUserDAO.BEAN_NAME );
 
     @Override
     protected Map<String, Object> getMapFormColumnValues( FormResponseSearchItem formResponseSearchItem )
