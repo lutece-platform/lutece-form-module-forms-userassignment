@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
         <artifactId>lutece-global-pom</artifactId>
@@ -11,7 +13,7 @@
     <artifactId>module-forms-userassignment</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.0.1-SNAPSHOT</version>
-    <name>Lutece userassignment plugin</name>
+    <name>Lutece Forms userassignment module</name>
 
     <repositories>
         <repository>
@@ -29,10 +31,10 @@
             <version>[6.2.0,)</version>
             <type>lutece-core</type>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>fr.paris.lutece.plugins</groupId>
             <artifactId>plugin-userassignment</artifactId>
-	    <version>[1.0.0,)</version>
+            <version>[1.0.0,)</version>
             <type>lutece-plugin</type>
         </dependency>
         <dependency>
@@ -47,11 +49,11 @@
         <componentName>forms-userassignment</componentName>
         <jiraProjectName>MFUSERASSI</jiraProjectName>
         <jiraComponentId>15552</jiraComponentId>
-</properties>
- <scm>
+    </properties>
+    <scm>
         <connection>scm:git:https://github.com/lutece-platform/lutece-form-module-forms-userassignment.git</connection>
         <developerConnection>scm:git:https://github.com/lutece-platform/lutece-form-module-forms-userassignment.git</developerConnection>
         <url>https://github.com/lutece-platform/lutece-form-module-forms-userassignment.git</url>
-    <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 </project>
