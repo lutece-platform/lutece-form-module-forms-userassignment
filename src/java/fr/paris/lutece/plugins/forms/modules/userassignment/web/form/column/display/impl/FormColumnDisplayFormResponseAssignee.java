@@ -67,10 +67,10 @@ public class FormColumnDisplayFormResponseAssignee extends AbstractFormColumnDis
         model.put( MARK_FORM_RESPONSE_ASSIGNEE_COLUMN_TITLE, getFormColumnTitle( locale ) );
         model.put( MARK_COLUMN_SORT_ATTRIBUTE, FormResponseSearchItem.FIELD_ID_ASSIGNEE_USER );
 
-        String strFormResponseDateCreationHeaderTemplate = AppTemplateService.getTemplate( FORM_COLUMN_HEADER_TEMPLATE, locale, model ).getHtml( );
-        setFormColumnHeaderTemplate( strFormResponseDateCreationHeaderTemplate );
+        String strFormResponseAssigneeHeaderTemplate = AppTemplateService.getTemplate( FORM_COLUMN_HEADER_TEMPLATE, locale, model ).getHtml( );
+        setFormColumnHeaderTemplate( strFormResponseAssigneeHeaderTemplate );
 
-        return strFormResponseDateCreationHeaderTemplate;
+        return strFormResponseAssigneeHeaderTemplate;
     }
 
     @SuppressWarnings( "unchecked" )
