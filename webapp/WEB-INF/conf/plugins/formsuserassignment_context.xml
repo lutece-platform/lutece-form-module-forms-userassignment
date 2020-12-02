@@ -19,4 +19,10 @@
 		</constructor-arg>
 	</bean>
 
+    <bean id="forms-userassignment.formColumn.formResponseAssignee.queryPart.factory" class="fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.querypart.factory.impl.FormColumnFormResponseAssigneeQueryPartFactory"/>
+    <bean id="forms-userassignment.formResponseAssignee.column" class="fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.impl.FormColumnFormResponseAssignee">
+        <constructor-arg name="nFormColumnPosition" type="int" value="10"/>
+        <constructor-arg name="strFormColumnTitle" type="java.lang.String" value="module.forms.userassignment.column.assignee.title"/>
+    </bean>
+    <bean id="forms-userassignment.formResponseAssignee.column.display.factory" class="fr.paris.lutece.plugins.forms.modules.userassignment.web.form.column.display.factory.impl.FormColumnDisplayFormResponseAssigneeFactory"/>
 </beans>
