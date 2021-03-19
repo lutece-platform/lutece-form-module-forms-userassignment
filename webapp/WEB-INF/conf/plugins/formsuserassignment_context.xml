@@ -30,9 +30,6 @@
         </constructor-arg>
     </bean>
 
-    <bean
-        id="forms-userassignment.formColumn.formResponseAssignee.queryPart.factory"
-        class="fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.querypart.factory.impl.FormColumnFormResponseAssigneeQueryPartFactory" />
     <bean id="forms-userassignment.formResponseAssignee.column"
         class="fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.impl.FormColumnFormResponseAssignee">
         <constructor-arg name="nFormColumnPosition"

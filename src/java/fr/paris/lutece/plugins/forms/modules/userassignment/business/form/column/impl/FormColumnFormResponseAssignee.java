@@ -35,6 +35,8 @@ package fr.paris.lutece.plugins.forms.modules.userassignment.business.form.colum
 
 import fr.paris.lutece.plugins.forms.business.MultiviewConfig;
 import fr.paris.lutece.plugins.forms.business.form.column.impl.AbstractFormColumn;
+import fr.paris.lutece.plugins.forms.business.form.column.querypart.IFormColumnQueryPart;
+import fr.paris.lutece.plugins.forms.modules.userassignment.business.form.querypart.impl.FormColumnFormResponseAssigneeQueryPart;
 
 public class FormColumnFormResponseAssignee extends AbstractFormColumn
 {
@@ -57,5 +59,11 @@ public class FormColumnFormResponseAssignee extends AbstractFormColumn
     public boolean isDisplayed( )
     {
         return MultiviewConfig.getInstance( ).isDisplayFormsAssigneeColumn( );
+    }
+    
+    @Override
+    public IFormColumnQueryPart getFormColumnQueryPart( )
+    {
+        return new FormColumnFormResponseAssigneeQueryPart( );
     }
 }
