@@ -31,7 +31,4 @@
             type="java.lang.String"
             value="module.forms.userassignment.column.assignee.title" />
     </bean>
-    <bean
-        id="forms-userassignment.formResponseAssignee.column.display.factory"
-        class="fr.paris.lutece.plugins.forms.modules.userassignment.web.form.column.display.factory.impl.FormColumnDisplayFormResponseAssigneeFactory" />
 </beans>

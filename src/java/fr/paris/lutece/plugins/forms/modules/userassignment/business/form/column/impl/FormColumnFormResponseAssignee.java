@@ -37,6 +37,8 @@ import fr.paris.lutece.plugins.forms.business.MultiviewConfig;
 import fr.paris.lutece.plugins.forms.business.form.column.impl.AbstractFormColumn;
 import fr.paris.lutece.plugins.forms.business.form.column.querypart.IFormColumnQueryPart;
 import fr.paris.lutece.plugins.forms.modules.userassignment.business.form.querypart.impl.FormColumnFormResponseAssigneeQueryPart;
+import fr.paris.lutece.plugins.forms.modules.userassignment.web.form.column.display.impl.FormColumnDisplayFormResponseAssignee;
+import fr.paris.lutece.plugins.forms.web.form.column.display.IFormColumnDisplay;
 
 public class FormColumnFormResponseAssignee extends AbstractFormColumn
 {
@@ -65,5 +67,13 @@ public class FormColumnFormResponseAssignee extends AbstractFormColumn
     public IFormColumnQueryPart getFormColumnQueryPart( )
     {
         return new FormColumnFormResponseAssigneeQueryPart( );
+    }
+    
+    @Override
+    public IFormColumnDisplay getFormColumnDisplay( )
+    {
+        FormColumnDisplayFormResponseAssignee formColumnDisplayFormResponseAssignee = new FormColumnDisplayFormResponseAssignee( );
+        formColumnDisplayFormResponseAssignee.setFormColumn( this );
+        return formColumnDisplayFormResponseAssignee;
     }
 }
