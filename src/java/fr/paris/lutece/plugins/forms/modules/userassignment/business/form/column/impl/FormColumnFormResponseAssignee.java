@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020, City of Paris
+ * Copyright (c) 2002-2021, City of Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -62,13 +62,13 @@ public class FormColumnFormResponseAssignee extends AbstractFormColumn
     {
         return MultiviewConfig.getInstance( ).isDisplayFormsAssigneeColumn( );
     }
-    
+
     @Override
     public IFormColumnQueryPart getFormColumnQueryPart( )
     {
         return new FormColumnFormResponseAssigneeQueryPart( );
     }
-    
+
     @Override
     public IFormColumnDisplay getFormColumnDisplay( )
     {
