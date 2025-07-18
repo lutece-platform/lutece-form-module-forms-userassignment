@@ -44,15 +44,14 @@ import fr.paris.lutece.plugins.forms.business.form.column.querypart.impl.Abstrac
 import fr.paris.lutece.plugins.forms.business.form.search.FormResponseSearchItem;
 import fr.paris.lutece.plugins.forms.service.FormsPlugin;
 import fr.paris.lutece.plugins.userassignment.business.IResourceUserDAO;
-import fr.paris.lutece.plugins.userassignment.business.ResourceUserDAO;
 import fr.paris.lutece.portal.business.user.AdminUser;
-import fr.paris.lutece.portal.service.spring.SpringContextService;
+import jakarta.enterprise.inject.spi.CDI;
 
 public class FormColumnFormResponseAssigneeQueryPart extends AbstractFormColumnQueryPart
 {
     public static final String KEY_USER_LIST = "user_list";
 
-    private IResourceUserDAO _resourceUserDAO = SpringContextService.getBean( ResourceUserDAO.BEAN_NAME );
+    private IResourceUserDAO _resourceUserDAO = CDI.current( ).select( IResourceUserDAO.class ).get( );
 
     @Override
     protected Map<String, Object> getMapFormColumnValues( FormResponseSearchItem formResponseSearchItem )

@@ -33,13 +33,18 @@
  */
 package fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.impl;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import fr.paris.lutece.plugins.forms.business.MultiviewConfig;
 import fr.paris.lutece.plugins.forms.business.form.column.impl.AbstractFormColumn;
 import fr.paris.lutece.plugins.forms.business.form.column.querypart.IFormColumnQueryPart;
 import fr.paris.lutece.plugins.forms.modules.userassignment.business.form.querypart.impl.FormColumnFormResponseAssigneeQueryPart;
 import fr.paris.lutece.plugins.forms.modules.userassignment.web.form.column.display.impl.FormColumnDisplayFormResponseAssignee;
 import fr.paris.lutece.plugins.forms.web.form.column.display.IFormColumnDisplay;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
+@ApplicationScoped
 public class FormColumnFormResponseAssignee extends AbstractFormColumn
 {
     /**
@@ -50,9 +55,10 @@ public class FormColumnFormResponseAssignee extends AbstractFormColumn
      * @param strFormColumnTitle
      *            The title of the FormColumn
      */
-    public FormColumnFormResponseAssignee( int nFormColumnPosition, String strFormColumnTitle )
+	@Inject
+    public FormColumnFormResponseAssignee( @ConfigProperty( name = "forms-userassignment.formResponseAssignee.column.position" ) int nFormColumnPosition, 
+    		@ConfigProperty( name = "forms-userassignment.formResponseAssignee.column.title" ) String strFormColumnTitle )
     {
-        super( );
         setFormColumnPosition( nFormColumnPosition );
         setFormColumnTitle( strFormColumnTitle );
     }
