@@ -33,12 +33,15 @@
  */
 package fr.paris.lutece.plugins.forms.modules.userassignment.business.form.column.impl;
 
+import org.junit.jupiter.api.Test;
+
 import fr.paris.lutece.plugins.forms.business.MultiviewConfig;
 import fr.paris.lutece.test.LuteceTestCase;
 
 public class FormColumnFormResponseAssigneeTest extends LuteceTestCase
 {
 
+	@Test
     public void testIsDiplayed_True( )
     {
         MultiviewConfig.getInstance( ).setDisplayFormsAssigneeColumn( true );
@@ -47,6 +50,7 @@ public class FormColumnFormResponseAssigneeTest extends LuteceTestCase
         assertTrue( column.isDisplayed( ) );
     }
 
+	@Test
     public void testIsDiplayed_False( )
     {
         MultiviewConfig.getInstance( ).setDisplayFormsAssigneeColumn( false );
