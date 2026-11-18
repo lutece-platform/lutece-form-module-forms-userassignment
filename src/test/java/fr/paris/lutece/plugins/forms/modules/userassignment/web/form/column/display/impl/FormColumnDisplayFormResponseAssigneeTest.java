@@ -36,6 +36,7 @@ package fr.paris.lutece.plugins.forms.modules.userassignment.web.form.column.dis
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -89,5 +90,26 @@ public class FormColumnDisplayFormResponseAssigneeTest extends LuteceTestCase
 
         assertTrue( strHtml.trim( ).startsWith( "<td" ), strHtml );
         assertTrue( strHtml.trim( ).endsWith( "</td>" ), strHtml );
+    }
+
+    @Test
+    public void testDeletedAssignee( )
+    {
+        AdminUser user = new AdminUser( );
+        user.setFirstName( "Bob" );
+        user.setLastName( "Smith" );
+        // A user deleted while assigned (null user of plugin-userassignment before 2.0.1)
+        List<AdminUser> listUsers = new ArrayList<>( );
+        listUsers.add( null );
+        listUsers.add( user );
+
+        Map<String, Object> mapValues = new HashMap<>( );
+        mapValues.put( FormColumnFormResponseAssigneeQueryPart.KEY_USER_LIST, listUsers );
+        FormColumnCell cell = new FormColumnCell( );
+        cell.setFormColumnCellValues( mapValues );
+
+        String strHtml = new FormColumnDisplayFormResponseAssignee( ).buildFormColumnCellTemplate( cell, Locale.ENGLISH );
+
+        assertTrue( strHtml.contains( "Bob Smith" ), strHtml );
     }
 }

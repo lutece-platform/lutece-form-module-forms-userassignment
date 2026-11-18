@@ -37,6 +37,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import fr.paris.lutece.plugins.forms.business.form.column.FormColumnCell;
@@ -84,7 +85,9 @@ public class FormColumnDisplayFormResponseAssignee extends AbstractFormColumnDis
             if ( objectAssigneeList != null )
             {
                 List<AdminUser> userList = (List<AdminUser>) objectAssigneeList;
-                assigneeList = userList.stream( ).map( u -> u.getFirstName( ) + " " + u.getLastName( ) ).collect( Collectors.joining( ", " ) );
+                // A user deleted while assigned is null with plugin-userassignment before 2.0.1
+                assigneeList = userList.stream( ).filter( Objects::nonNull ).map( u -> u.getFirstName( ) + " " + u.getLastName( ) )
+                        .collect( Collectors.joining( ", " ) );
             }
 
         }
